@@ -2,9 +2,19 @@
     margin: 0;
     padding: 0;
 }
+
 header{
-    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5))url(Media\background.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5))url("file:///C:/Users/HasanBhati/Desktop/Files/My%20Files/Aumad/aumad.com/Media/background.jpg");
     height: 100vh;
     background-position: center;
     background-size: cover;
+}
+
+.search{
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
 }
