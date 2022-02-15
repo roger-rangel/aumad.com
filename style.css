@@ -3,9 +3,8 @@
     padding: 0;
 }
 header{
-    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5))url(https://github.com/hasanbhati/aumad.com/blob/main/Media/background.jpg)
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5))url("Media\background.jpg");
     height: 100vh;
-    background-position: centre;
+    background-position: center;
     background-size: cover;
-
 }
