@@ -1,21 +1,44 @@
-
-
-    var CountDownDate = new Date().getTime();
+(function () {
+    const second = 1000,
+          minute = second * 60,
+          hour = minute * 60,
+          day = hour * 24;
+  
+   
+    let today = new Date(),
+        dd = String(today.getDate()).padStart(2, "0"),
+        mm = String(today.getMonth() + 1).padStart(2, "0"),
+        yyyy = today.getFullYear(),
+        nextYear = yyyy + 1,
+        dayMonth = "06/01/",
+        storeOpen = dayMonth + nextYear;
+        console.log(storeOpen);
     
-    var x = setInterval(function(){
-        var now = new Date().getTime();
-        var distance = CountDownDate * now;
-
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor(distance % (1000 * 60 * 60 * 24) / ( 1000 * 60 * 60));
-    var minutes = Math.floor(distance % (1000 * 60 * 60) / (1000 * 60));
-    var seconds = Math.floor(distance / (100 * 60) / 1000);
-
-    document.getElementById("launch").innerHTML = days + "d" + hours + "h" + minutes + "m" + seconds + "s";
-
-    if (distance < 0){
-        clearInterval(x);
-        document.getElementsByClass("Shortly").innerHTML = "EXPIRED";
+    today = mm + "/" + dd + "/" + yyyy;
+    if (today > storeOpen) {
+      storeOpen = dayMonth + nextYear;
     }
-    }, 1000)
+    //end
+    
+    const countDown = new Date(storeOpen).getTime(),
+        x = setInterval(function() {    
+  
+          const now = new Date().getTime(),
+                distance = countDown - now;
+  
+          document.getElementById("days").innerText = Math.floor(distance / (day)),
+            document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+            document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+            document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+  
+          //do something later when date is reached
+          if (distance < 0) {
+            document.getElementById("headline").innerText = "Store is now open!";
+            document.getElementById("countdown").style.display = "none";
+            document.getElementById("content").style.display = "block";
+            clearInterval(x);
+          }
+          //seconds
+        }, 0)
+    }());
 
